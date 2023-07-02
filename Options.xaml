@@ -82,7 +82,7 @@
 
         <!-- Used for Checkmark, Radio button, TreeViewItem, Expander ToggleButton glyphs -->
         <!--<SolidColorBrush x:Key="GlyphBrush" Color="Green"/>-->
-        
+
         <LinearGradientBrush x:Key="GlyphBrush" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="Green" Offset="0.0"/>
             <GradientStop Color="DarkGreen" Offset="1.0"/>
@@ -256,7 +256,7 @@
                             <ToggleButton Grid.Column="2" Template="{DynamicResource BSToggleButtonControlTemplate}" x:Name="ToggleButton" Focusable="false" IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
                             <TextBlock>
 										<ContentPresenter HorizontalAlignment="Left" Margin="3,0,23,3" x:Name="ContentSite" VerticalAlignment="Center" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" IsHitTestVisible="False"/>
-								</TextBlock>
+                            </TextBlock>
 
                             <!-- The TextBox must be named PART_EditableTextBox or ComboBox will not recognize it -->
                             <TextBox Visibility="Hidden" Template="{DynamicResource ComboBoxTextBox}" HorizontalAlignment="Left" Margin="3,3,23,3" x:Name="PART_EditableTextBox" Style="{x:Null}" VerticalAlignment="Center" Focusable="True" Background="Transparent" IsReadOnly="{TemplateBinding IsReadOnly}" d:IsHidden="True"/>
@@ -604,27 +604,35 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid DataContext="{StaticResource settings}" x:Name="LayoutRoot" Background="Transparent">
+    <Grid DataContext="{StaticResource settings}" x:Name="LayoutRoot" Background="Transparent" Margin="0,10,0,-74">
         <!-- #CC000000-->
 
 
 
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="720" Height="370" Background="{x:Null}">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Width="720" Height="370" Background="{x:Null}" Margin="0,86,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="39.5"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="55.5"/>
+                <RowDefinition/>
+                <RowDefinition Height="15.5"/>
             </Grid.RowDefinitions>
-            <Rectangle Fill="{DynamicResource Brush1}" Stroke="#FF999999" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" StrokeThickness="3" RadiusX="5" RadiusY="5" Grid.ColumnSpan="2" Grid.RowSpan="3" >
+            <Rectangle Fill="{DynamicResource Brush1}" Stroke="#FF999999" Width="Auto" StrokeThickness="3" RadiusX="5" RadiusY="5" Grid.ColumnSpan="2" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5" Margin="0,12,-6,-12" >
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-0.204"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.7"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
                 <Rectangle.BitmapEffect>
                     <OuterGlowBitmapEffect GlowColor="#7F000000" GlowSize="15" Opacity="0.3"/>
                 </Rectangle.BitmapEffect>
             </Rectangle>
-            <Viewbox Margin="-4,-57,-25.157,0" x:Name="shapes1" VerticalAlignment="Top" Height="135.469" Clip="M7.5,-253 C7.5,-255.76142 9.7385763,-258 12.5,-258 L599.5,-258 C602.26142,-258 604.5,-255.76142 604.5,-253 L604.5,104 C604.5,106.76142 602.26142,109 599.5,109 L12.5,109 C9.7385763,109 7.5,106.76142 7.5,104 z" RenderTransformOrigin="0.5,0.5" Grid.Row="2" Stretch="Fill">
+            <Viewbox Margin="-4,224,335,0" x:Name="shapes1" VerticalAlignment="Top" Height="135.469" Clip="M7.5,-253 C7.5,-255.76142 9.7385763,-258 12.5,-258 L599.5,-258 C602.26142,-258 604.5,-255.76142 604.5,-253 L604.5,104 C604.5,106.76142 602.26142,109 599.5,109 L12.5,109 C9.7385763,109 7.5,106.76142 7.5,104 z" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="2">
                 <Viewbox.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="1" ScaleY="1"/>
@@ -678,7 +686,7 @@
                                 <TranslateTransform X="0" Y="0"/>
                             </TransformGroup>
                         </Canvas.RenderTransform>
-                        <Path StrokeThickness="10" Stroke="#ff000000" StrokeMiterLimit="1" Data="F1 M 126.578613,11.297852 L 162.373535,83.825684 L 242.412598,95.456055 L 184.495605,151.911133 L 198.167480,231.626953 L 126.578613,193.990234 L 54.988770,231.626953 L 68.661621,151.911133 L 10.744629,95.456055 L 90.783691,83.825684 L 126.578613,11.297852 Z" x:Name="starShape" Fill="{DynamicResource greenBrush}"/>
+                        <Path StrokeThickness="10" Stroke="#ff000000" StrokeMiterLimit="1" Data="F1 M 126.578613,11.297852 L 162.373535,83.825684 L 242.412598,95.456055 L 184.495605,151.911133 L 198.167480,231.626953 L 126.578613,193.990234 L 54.988770,231.626953 L 68.661621,151.911133 L 10.744629,95.456055 L 90.783691,83.825684 L 126.578613,11.297852 Z" x:Name="starShape" Fill="{DynamicResource greenBrush}" HorizontalAlignment="Center" Canvas.Left="-0.001" VerticalAlignment="Top" Canvas.Top="-0.004"/>
                         <Path Fill="#ff000000" Stretch="Fill" Width="56" Height="23" Canvas.Left="98.579" Canvas.Top="103.093" Data="M44.5,0 C50.851563,0 56,5.1489258 56,11.5 56,17.851074 50.851563,23 44.5,23 38.148438,23 33,17.851074 33,11.5 33,5.1489258 38.148438,0 44.5,0 z M11.5,0 C17.850586,0 23,5.1489258 23,11.5 23,17.851074 17.850586,23 11.5,23 5.1484375,23 0,17.851074 0,11.5 0,5.1489258 5.1484375,0 11.5,0 z" x:Name="StarEyes"/>
                         <Path Fill="#ff000000" Data="F1 M 139.507324,154.020020 C 139.507324,161.159668 133.717773,166.948242 126.578125,166.948242 C 119.438477,166.948242 113.649902,161.159668 113.649902,154.020020 C 113.649902,146.879883 119.438477,154.020020 126.578125,154.020020 C 133.717773,154.020020 139.507324,146.879883 139.507324,154.020020 Z" x:Name="mouth3"/>
                     </Canvas>
@@ -694,7 +702,7 @@
                                 <TranslateTransform X="0" Y="0"/>
                             </TransformGroup>
                         </Canvas.RenderTransform>
-                        <Ellipse StrokeThickness="10" Stroke="#ff000000"  Width="212.176" Height="212.176" Fill="{DynamicResource redBrush}"/>
+                        <Ellipse StrokeThickness="10" Stroke="#ff000000"  Width="212.176" Height="212.176" Fill="{DynamicResource redBrush}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                         <Path StrokeThickness="10" Stroke="#ff000000" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" Data="F1 M 58.970703,66.372070 C 64.513184,62.001953 71.509277,59.393555 79.114258,59.393555 C 86.719727,59.393555 93.715820,62.001953 99.258301,66.372070" x:Name="CircleEye1"/>
                         <Path StrokeThickness="10" Stroke="#ff000000" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" Data="F1 M 114.742188,66.372070 C 120.284180,62.001953 127.280273,59.393555 134.885742,59.393555 C 142.491211,59.393555 149.487305,62.001953 155.029297,66.372070" x:Name="CircleEye2"/>
                         <Path Fill="#ff000000" Data="F1 M 124.545898,151.451172 C 124.529297,161.141602 116.688477,168.981445 107.000977,168.998047 L 107.000977,168.998047 C 97.310547,168.981445 89.469727,161.141602 89.453125,151.451172 L 89.453125,151.451172 C 89.453125,148.690430 87.213867,146.451172 84.453125,146.451172 L 84.453125,146.451172 C 81.692383,146.451172 79.453125,148.690430 79.453125,151.451172 L 79.453125,151.451172 C 79.457031,166.666992 91.785156,178.995117 107.000977,178.999023 L 107.000977,178.999023 C 122.214844,178.995117 134.543945,166.666992 134.546875,151.451172 L 134.546875,151.451172 C 134.546875,148.690430 132.308594,146.451172 129.545898,146.451172 L 129.545898,146.451172 C 126.785156,146.451172 124.545898,148.690430 124.545898,151.451172 L 124.545898,151.451172 Z" x:Name="mouth4"/>
@@ -718,99 +726,111 @@
                     </Canvas>
                 </Canvas>
             </Viewbox>
-            <TextBlock HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Bottom" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Welcome to BabySmash!" TextWrapping="Wrap"/>
-			<TextBlock FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Options" TextWrapping="Wrap" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" Margin="20,0,0,0"/>
-			<TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FFD1D1D1" Grid.Row="1" Margin="20,10,20,0" FontSize="14" FontFamily="Segoe UI"><Run Text="We're adding new features weekly. "/><LineBreak/><Run Text="This week added click animations and all new graphics! "/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Try the many options and find the ones that are right for your baby!"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="There's even more fun coming soon!"/><LineBreak/><LineBreak/><Run Text=""/><Bold><Run Text="Thoughts or ideas?"/><LineBreak/><Hyperlink TextDecorations="" Click="FeedbackLink_Click"  x:Name="FeedbackLink"><Run Foreground="#FFeeeeee" Text="http://feedback.babysmash.com"/></Hyperlink></Bold></TextBlock>
-            
-            <TextBlock x:Name="versionLabel" VerticalAlignment="Bottom" TextWrapping="Wrap" Foreground="#FFD1D1D1" Grid.Row="1" Margin="20,0,45.58,0" FontSize="9" FontFamily="Segoe UI" Height="50">Version</TextBlock>
-		
-            
+            <TextBlock HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Bottom" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Welcome to BabySmash!" TextWrapping="Wrap" Height="24" Width="209"/>
+            <TextBlock FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="#FFFFFFFF" Text="Options" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" Margin="20,0,0,0" Height="24" Width="67"/>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FFD1D1D1" Grid.Row="1" Margin="20,10,0,0" FontSize="14" FontFamily="Segoe UI" Height="205" Width="293"><Run Text="We're adding new features weekly. "/><LineBreak/><Run Text="This week added click animations and all new graphics! "/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Try the many options and find the ones that are right for your baby!"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="There's even more fun coming soon!"/><LineBreak/><LineBreak/><Run Text=""/><Bold><Run Text="Thoughts or ideas?"/><LineBreak/><Hyperlink TextDecorations="None" Click="FeedbackLink_Click"  x:Name="FeedbackLink"><Run Foreground="#FFeeeeee" Text="http://feedback.babysmash.com"/></Hyperlink></Bold></TextBlock>
 
-			<Grid HorizontalAlignment="Stretch" Margin="20,10,20,0" VerticalAlignment="Top" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="0.497*"/>
-					<ColumnDefinition Width="0.503*"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="29"/>
-					<RowDefinition Height="29"/>
-					<RowDefinition Height="29"/>
-					<RowDefinition Height="29"/>
-					<RowDefinition Height="29"/>
-					<RowDefinition Height="29"/>
-					<RowDefinition Height="29"/>
-					<RowDefinition Height="29"/>
-					<RowDefinition Height="29"/>
-					<RowDefinition Height="29"/>
-				</Grid.RowDefinitions>
-				
-				
-				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="#FFD1D1D1" Text="Start removing after" Margin="0,0,0,0" FontSize="14" FontFamily="Segoe UI" Grid.Row="0" d:LayoutOverrides="Height" />
-				
-				
-				<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" >
-					<TextBox Foreground="#FF252525" FontSize="14" FontFamily="Segoe UI" Text="{Binding Path=Default.ClearAfter}"  VerticalAlignment="Top" Width="40" Style="{DynamicResource BSTextBoxStyle1}" Background="#FF3A3A3A" FontWeight="Bold"  />
-					<TextBlock TextWrapping="Wrap" Foreground="#FFD1D1D1" Text="shapes" FontSize="14" FontFamily="Segoe UI" d:LayoutOverrides="Width, Height" Margin="5,0,0,0" />
-				</StackPanel>
-		
-							<TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FFD1D1D1" Text="Sounds"  Grid.Row="1" Margin="0,0,0,0" FontSize="14" FontFamily="Segoe UI" />
-							<TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FFD1D1D1" Text="Cursor"  Grid.Row="2" Margin="0,0,0,0" FontSize="14" FontFamily="Segoe UI" />
-							<TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FFD1D1D1" Text="Font"  Grid.Row="3" Margin="0,0,0,0" FontSize="14" FontFamily="Segoe UI" />
-							
-							
-							  <ComboBox 
+            <TextBlock x:Name="versionLabel" VerticalAlignment="Bottom" TextWrapping="Wrap" Foreground="#FFD1D1D1" Grid.Row="1" Margin="20,0,46,41" FontSize="9" FontFamily="Segoe UI" Height="50">Version</TextBlock>
+
+
+
+            <Grid Margin="20,23,20,-12" Width="Auto" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.497*"/>
+                    <ColumnDefinition Width="0.503*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="29"/>
+                    <RowDefinition Height="29"/>
+                    <RowDefinition Height="29"/>
+                    <RowDefinition Height="29"/>
+                    <RowDefinition Height="29"/>
+                    <RowDefinition Height="29"/>
+                    <RowDefinition Height="29"/>
+                    <RowDefinition Height="29"/>
+                    <RowDefinition Height="29"/>
+                    <RowDefinition Height="29"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="11.5"/>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+
+
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="#FFD1D1D1" Text="Start removing after" FontSize="14" FontFamily="Segoe UI" Grid.Row="0" Width="145" />
+
+
+                <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Height="25" Width="87" >
+                    <TextBox Foreground="#FF252525" FontSize="14" FontFamily="Segoe UI" Text="{Binding Path=Default.ClearAfter}"  VerticalAlignment="Top" Width="40" Style="{DynamicResource BSTextBoxStyle1}" Background="#FF3A3A3A" FontWeight="Bold"  />
+                    <TextBlock TextWrapping="Wrap" Foreground="#FFD1D1D1" Text="shapes" FontSize="14" FontFamily="Segoe UI" d:LayoutOverrides="Width, Height" Margin="5,0,0,0" />
+                </StackPanel>
+
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FFD1D1D1" Text="Sounds"  Grid.Row="1" Margin="0,0,0,0" FontSize="14" FontFamily="Segoe UI" Height="19" Width="46" />
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FFD1D1D1" Text="Cursor"  Grid.Row="2" Margin="0,0,0,0" FontSize="14" FontFamily="Segoe UI" Height="19" Width="40" />
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FFD1D1D1" Text="Font"  Grid.Row="3" Margin="0,0,0,0" FontSize="14" FontFamily="Segoe UI" Height="19" Width="28" />
+
+
+                <ComboBox 
 					            SelectedValue="{Binding Path=Default.Sounds}" 
-					            SelectedValuePath="Content" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Style="{DynamicResource babySmashComboBox}" Grid.ColumnSpan="2" Width="170" HorizontalAlignment="Right">
-					            <ComboBoxItem Content="None"/>
-					            <ComboBoxItem Content="Laughter"/>
-					            <ComboBoxItem Content="Speech"/>
-					        </ComboBox>
-							
-							<ComboBox 
-					            SelectedValue="{Binding Path=Default.CursorType}" 
-					            SelectedValuePath="Content"  Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" Style="{DynamicResource babySmashComboBox}" Grid.ColumnSpan="2" Width="170" HorizontalAlignment="Right">
-					            <ComboBoxItem Content="Hand"/>
-					            <ComboBoxItem Content="Arrow"/>
-					        </ComboBox>
-							
-							
-							<ComboBox x:Name="FontChooser" ItemsSource="{Binding Source={StaticResource myFonts}}" Style="{DynamicResource babySmashComboBox}" 
-					          SelectedValue="{Binding Path=Default.FontFamily}" SelectedValuePath="Source" Grid.Row="3" Grid.Column="0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="170" HorizontalAlignment="Right">
-					            <ComboBox.ItemsPanel>
-					                <ItemsPanelTemplate>
-					                    <VirtualizingStackPanel />
-					                </ItemsPanelTemplate>
-					            </ComboBox.ItemsPanel>
-					            <ComboBox.ItemTemplate>
-					                <DataTemplate>
-					                    <TextBlock Text="{Binding}" FontFamily="{Binding}" Height="20"/>
-					                 </DataTemplate>
-					            </ComboBox.ItemTemplate>
-					        </ComboBox>
-							
-							
-							  <CheckBox Style="{DynamicResource SimpleCheckBox}" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI"
-					                  IsChecked="{Binding Path=Default.ForceUppercase, Mode=TwoWay}" Content="Force Letters to UPPERCASE" />
-					        <CheckBox Style="{DynamicResource SimpleCheckBox}" Grid.Row="5" Grid.ColumnSpan="2"  Grid.Column="0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI"
-					                  IsChecked="{Binding Path=Default.FacesOnShapes, Mode=TwoWay}" Content="Faces on Shapes" />
-					        <CheckBox Style="{DynamicResource SimpleCheckBox}" Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI"
-					                  IsChecked="{Binding Path=Default.UseEffects, Mode=TwoWay}" Content="Hardware Effects"/>
-					        <CheckBox Style="{DynamicResource SimpleCheckBox}" Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI"
-					                  IsChecked="{Binding Path=Default.MouseDraw, Mode=TwoWay}" Content="Clickless Mouse Drawing" />
-					        <CheckBox Style="{DynamicResource SimpleCheckBox}" x:Name="TransparentCheckBox" Grid.Row="8" Grid.ColumnSpan="3" Grid.Column="0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI"
-					                  IsChecked="{Binding Path=Default.TransparentBackground, Mode=TwoWay}" Content="Transparent Background (Requires App Restart)" />
-					        <StackPanel Orientation="Horizontal" Grid.Row="9" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-							
-					            <CheckBox Style="{DynamicResource SimpleCheckBox}"  x:Name="FadeChecked" Margin="0,0,0,0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI" 
-					          IsChecked="{Binding Path=Default.FadeAway, Mode=TwoWay}" Content="Fade Shapes Away in" VerticalAlignment="Center" />
-					          
-							   <TextBox Foreground="#FF252525" FontSize="14" FontFamily="Segoe UI" Width="40" Style="{DynamicResource BSTextBoxStyle1}" Background="#FF3A3A3A" FontWeight="Bold"  Text="{Binding Path=Default.FadeAfter}" 
-					             IsEnabled="{Binding Path=IsChecked, ElementName=FadeChecked, Mode=OneWay}" Height="25" Margin="5,0,0,0" VerticalAlignment="Center" />
-							    <TextBlock Margin="5,0,0,0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI" VerticalAlignment="Center"><Run Text="secs."/></TextBlock>
-					            </StackPanel>
+					            SelectedValuePath="Content" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Style="{DynamicResource babySmashComboBox}" Grid.ColumnSpan="2" Width="170" HorizontalAlignment="Left" Height="25" Margin="150,0,0,0">
+                    <ComboBoxItem Content="None"/>
+                    <ComboBoxItem Content="Laughter"/>
+                    <ComboBoxItem Content="Speech"/>
+                </ComboBox>
 
-			</Grid>
-			<Button x:Name="okButton" Click="OK_Click" HorizontalAlignment="Right" Margin="0,-15,-15,0" VerticalAlignment="Top" Content="Button"  Grid.Column="1" Style="{DynamicResource RoundButtonStyle2}"/>
-		</Grid>
+                <ComboBox 
+					            SelectedValue="{Binding Path=Default.CursorType}" 
+					            SelectedValuePath="Content"  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Style="{DynamicResource babySmashComboBox}" Grid.ColumnSpan="2" Width="170" HorizontalAlignment="Left" Height="25" Margin="150,0,0,0">
+                    <ComboBoxItem Content="Hand"/>
+                    <ComboBoxItem Content="Arrow"/>
+                </ComboBox>
+
+
+                <ComboBox x:Name="FontChooser" ItemsSource="{Binding Source={StaticResource myFonts}}" Style="{DynamicResource babySmashComboBox}" 
+					          SelectedValue="{Binding Path=Default.FontFamily}" SelectedValuePath="Source" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="170" HorizontalAlignment="Left" Height="25" Margin="150,0,0,0">
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" FontFamily="{Binding}" Height="20"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+
+                <CheckBox Style="{DynamicResource SimpleCheckBox}" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI"
+					                  IsChecked="{Binding Path=Default.ForceUppercase, Mode=TwoWay}" Content="Force Letters to UPPERCASE" />
+                <CheckBox Style="{DynamicResource SimpleCheckBox}" Grid.Row="5" Grid.ColumnSpan="2"  Grid.Column="0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI"
+					                  IsChecked="{Binding Path=Default.FacesOnShapes, Mode=TwoWay}" Content="Faces on Shapes" />
+                <CheckBox Style="{DynamicResource SimpleCheckBox}" Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI"
+					                  IsChecked="{Binding Path=Default.UseEffects, Mode=TwoWay}" Content="Hardware Effects"/>
+                <CheckBox Style="{DynamicResource SimpleCheckBox}" Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI"
+					                  IsChecked="{Binding Path=Default.MouseDraw, Mode=TwoWay}" Content="Clickless Mouse Drawing" />
+                <CheckBox Style="{DynamicResource SimpleCheckBox}" x:Name="TransparentCheckBox" Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI"
+					                  IsChecked="{Binding Path=Default.TransparentBackground, Mode=TwoWay}" Content="Transparent Background (Requires App Restart)" Margin="0,0,0,29" />
+                <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.ColumnSpan="2" VerticalAlignment="Top" Height="25">
+
+                    <CheckBox Style="{DynamicResource SimpleCheckBox}"  x:Name="FadeChecked" Margin="0,0,0,0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI" 
+					          IsChecked="{Binding Path=Default.FadeAway, Mode=TwoWay}" Content="Fade Shapes Away in" VerticalAlignment="Center" />
+
+                    <TextBox Foreground="#FF252525" FontSize="14" FontFamily="Segoe UI" Width="40" Style="{DynamicResource BSTextBoxStyle1}" Background="#FF3A3A3A" FontWeight="Bold"  Text="{Binding Path=Default.FadeAfter}" 
+					             IsEnabled="{Binding Path=IsChecked, ElementName=FadeChecked, Mode=OneWay}" Height="25" Margin="5,0,0,0" VerticalAlignment="Center" />
+                    <TextBlock Margin="5,0,0,0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI" VerticalAlignment="Center"><Run Text="secs."/></TextBlock>
+                </StackPanel>
+                <StackPanel x:Name="AutoCLoseRow" Orientation="Horizontal" Grid.Row="9" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="25" HorizontalAlignment="Left" Width="207">
+
+                    <CheckBox Style="{DynamicResource SimpleCheckBox}"  x:Name="AutoShutdownChecked" Margin="0,0,0,0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI" 
+					          IsChecked="{Binding Path=Default.AutoShutdownEnabled, Mode=TwoWay}" Content="Auto shutdown in" VerticalAlignment="Center" Height="20" />
+
+                    <TextBox Foreground="#FF252525" FontSize="14" FontFamily="Segoe UI" Width="40" Style="{DynamicResource BSTextBoxStyle1}" Background="#FF3A3A3A" FontWeight="Bold"  Text="{Binding Path=Default.AutoShutdownAfter}" 
+					             IsEnabled="{Binding Path=IsChecked, ElementName=AutoShutdownChecked, Mode=OneWay}" Height="25" Margin="5,0,0,0" VerticalAlignment="Center" />
+                    <TextBlock Margin="5,0,0,0" Foreground="#FFD1D1D1" FontSize="14" FontFamily="Segoe UI" VerticalAlignment="Center"><Run Text="secs."/></TextBlock>
+                </StackPanel>
+            </Grid>
+            <Button x:Name="okButton" Click="OK_Click" HorizontalAlignment="Right" Margin="0,-15,-15,0" VerticalAlignment="Top" Content="Button"  Grid.Column="1" Style="{DynamicResource RoundButtonStyle2}" Height="50" Width="50"/>
+        </Grid>
     </Grid>
 </Window>

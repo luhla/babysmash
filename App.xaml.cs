@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BabySmash.Properties;
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -12,6 +13,9 @@ namespace BabySmash
     {
         private static readonly InterceptKeys.LowLevelKeyboardProc _proc = HookCallback;
         private static IntPtr _hookID = IntPtr.Zero;
+
+        private static WinForms.Timer autoCloseTimer = new WinForms.Timer();
+        public static DateTime lastActionTime = DateTime.Now;
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
@@ -30,6 +34,9 @@ namespace BabySmash
             {
                 DetachKeyboardHook();
             }
+            autoCloseTimer.Interval = 1000;
+            autoCloseTimer.Tick += AutoCloseTimerTick;
+            autoCloseTimer.Start();
         }
 
         void Current_Exit(object sender, ExitEventArgs e)
@@ -46,17 +53,34 @@ namespace BabySmash
                 InterceptKeys.UnhookWindowsHookEx(_hookID);
         }
 
+        void AutoCloseTimerTick(object sender, EventArgs e)
+        {
+            // Získání aktuálního času
+            DateTime currentTime = DateTime.Now;
+
+            // Vypočítání rozdílu mezi aktuálním časem a časem posledního kliknutí
+            TimeSpan timeSinceLastClick = currentTime - lastActionTime;
+
+            // Pokud uplynula 1 minuta od posledního kliknutí, ukončit aplikaci
+            if (Settings.Default.AutoShutdownEnabled == true && timeSinceLastClick.TotalSeconds >= Settings.Default.AutoShutdownAfter)
+            {
+                autoCloseTimer.Stop(); // Zastavíme časovač, aby se nevolal znovu
+                Application.Current.Shutdown();
+            }
+        }
+
         public static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
             if (nCode >= 0)
             {
                 bool alt = (WinForms.Control.ModifierKeys & Keys.Alt) != 0;
                 bool control = (WinForms.Control.ModifierKeys & Keys.Control) != 0;
+                lastActionTime = DateTime.Now;
 
                 int vkCode = Marshal.ReadInt32(lParam);
                 Keys key = (Keys)vkCode;
 
-                if (alt && key == Keys.F4)
+                if ( alt && (key == Keys.F4 || key == Keys.X)) 
                 {
                     Application.Current.Shutdown();
                     return (IntPtr)1; // Handled.

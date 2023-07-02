@@ -67,5 +67,10 @@ namespace BabySmash
         {
             Process.Start("http://feedback.babysmash.com");
         }
+
+        private void FadeChecked_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

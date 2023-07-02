@@ -25,7 +25,6 @@ namespace BabySmash
     using System.IO;
     using System.Speech.Synthesis;
     using System.Text;
-
     using Newtonsoft.Json;
 
     public class Controller
@@ -42,6 +41,7 @@ namespace BabySmash
         private bool isDrawing = false;
         private readonly SpeechSynthesizer objSpeech = new SpeechSynthesizer();
         private readonly List<MainWindow> windows = new List<MainWindow>();
+
 
         private DispatcherTimer timer = new DispatcherTimer();
         private Queue<Shape> ellipsesQueue = new Queue<Shape>();
@@ -100,6 +100,7 @@ namespace BabySmash
             timer.Tick += new EventHandler(timer_Tick);
             timer.Interval = new TimeSpan(0, 0, 1);
             int Number = 0;
+
 
             if (ApplicationDeployment.IsNetworkDeployed)
             {
@@ -190,7 +191,6 @@ namespace BabySmash
             {
                 uie.ReleaseMouseCapture();
             }
-            
             char displayChar = GetDisplayChar(e.Key);
             AddFigure(uie, displayChar);
         }
@@ -571,6 +571,8 @@ namespace BabySmash
 
         public void MouseMove(MainWindow main, MouseEventArgs e)
         {
+            App.lastActionTime = DateTime.Now;
+
             if (isOptionsDialogShown)
             {
                 main.ReleaseMouseCapture();
